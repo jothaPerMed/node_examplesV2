@@ -7,12 +7,20 @@ const host = 'localhost';
 const port = '8000';
 const server = http.createServer((request,response)=>{
 
-    //Metodos permitidos ejemplo 
+  
+
+    /**Metodo para enviar Las Cabeceras  */
+    response.setHeader('Content-Type','application/json')
+   
     if(request.method==='GET'){
+        response.statusCode=300
+         
         response.write("<h1>Este Metodo esta permitido</h1>")
         response.end();
     }
     else{
+        //Ejemplo de codigo de estado
+        response.statusCode=404
         response.write("Este Metdo no esta permitido")
     }
     
