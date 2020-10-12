@@ -6,8 +6,17 @@ import { compile } from 'morgan';
 const host = 'localhost';
 const port = '8000';
 const server = http.createServer((request,response)=>{
-    response.write("<h1>Prueba Funcionando</h1>")
-    response.end();
+
+    //Metodos permitidos ejemplo 
+    if(request.method==='GET'){
+        response.write("<h1>Este Metodo esta permitido</h1>")
+        response.end();
+    }
+    else{
+        response.write("Este Metdo no esta permitido")
+    }
+    
+   return response.end();
 })
 
 server.listen(port,server,err=>{
