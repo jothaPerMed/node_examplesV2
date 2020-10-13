@@ -19,7 +19,29 @@ app.use(bodyParser.urlencoded({
 app.get('/', (request, response) => {
     response.end("Hola Mundo!")
 })
+/**Hacer uso del directorio de vistas para el renderizado */
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'pug');
+//=====Utilizar Rutas Prametrizables 
+/*
+app.get('/:user', (request, response) => {
+    response.render('user', {
+        title: 'Mi Web',
+        mensaje: `Bienvenido ${request.params.user}`
+    })
+    response.end()
+})
+*/
 
+
+
+//Utilizacion de middleware para buscar la pagina si no existiera mostraria un 404
+app.use((require,response,next)=>{
+    response.render('404',{
+        title: 'Error Pagina No Existe',
+        mensaje : `La ruta que busca da a una pagina no existente `
+    })
+})
 /**
  * Utilizar Ficheros estaticos parar leerlos segun su extension e importarlos
  */
