@@ -7,7 +7,7 @@
     "start": "node --require babel-register src/index.js",
     "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"node --require babel-register src/serverRest.js",
+    "server": "node --require babel-register src/serverRest.js",
     "lint": "standard src/**/*.js"
   },
   "keywords": [
@@ -26,6 +26,7 @@
     "babel-preset-env": "^1.7.0",
     "body-parse": "^0.1.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
     "pug": "^3.0.0"
