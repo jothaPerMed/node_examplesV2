@@ -4,7 +4,7 @@ import morgan from 'morgan'
 
 import bodyParser from 'body-parser';
 import path from 'path';
-
+import router from './router'
 const app = express()
 /**MIDDLEWARES */
 app.disable('x-powered-by')
@@ -16,23 +16,12 @@ app.use(bodyParser.urlencoded({
 }))
 /**END MIDDLEWARES */
 
-app.get('/', (request, response) => {
-    response.end("Hola Mundo!")
-})
+
 /**Hacer uso del directorio de vistas para el renderizado */
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug');
-//=====Utilizar Rutas Prametrizables 
-/*
-app.get('/:user', (request, response) => {
-    response.render('user', {
-        title: 'Mi Web',
-        mensaje: `Bienvenido ${request.params.user}`
-    })
-    response.end()
-})
-*/
 
+router(app)//--->EJECUTANDO LAS RUTAS
 
 
 //Utilizacion de middleware para buscar la pagina si no existiera mostraria un 404
