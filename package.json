@@ -7,6 +7,7 @@
     "start": "node --require babel-register src/index.js",
     "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"node --require babel-register src/serverRest.js",
     "lint": "standard src/**/*.js"
   },
   "keywords": [
