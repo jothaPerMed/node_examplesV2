@@ -1,9 +1,8 @@
-
-import auth from './routes/auth'
 import user from './routes/user'
-
-export default app => {
-    app.use('/auth', auth)
-    app.use('/user', user)
-
+import products from './routes/products'
+export default app=>{
+   
+    app.use('/product',products)
+    app.use('/user',user)
+   
 }

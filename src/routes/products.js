@@ -11,8 +11,8 @@ connexion.connect()
 /**
  * MODELO BDD PRODUCT
  */
-const model = require('../models/userModel')
-var user = model.getModel()
+const model = require('../models/productModel')
+var product = model.getModel()
 
 const router = express.Router()
 router
@@ -21,11 +21,11 @@ router
 
         
         
-        user.find().exec(function (err, users) {
+        product.find().exec(function (err, products) {
             if (err) throw err;
             res
             .status(200)
-            .json(users)
+            .json(products)
         })
         
 
@@ -34,7 +34,7 @@ router
     })
 
     .post('/', (req, res, next) => {
-        var nuevo =   user(req.body)
+        var nuevo =   product(req.body)
         nuevo.save(function(err){
             if(err)throw err;
             console.log("insertado")
